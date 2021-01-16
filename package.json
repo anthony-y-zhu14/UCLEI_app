@@ -1,6 +1,6 @@
 {
-  "homepage": "https://anthony-y-zhu14.github.io/The-Shoppies/",
-  "name": "react-app",
+  "homepage": "https://anthony-y-zhu14.github.io/UCLEI_app/",
+  "name": "uclei_app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -38,7 +38,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://uclei.herokuapp.com/",
   "eslintConfig": {
     "extends": [
       "react-app",
