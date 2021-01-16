@@ -13,6 +13,7 @@ import Login from './components/pages/Login.js';
 import Dashboard from './components/pages/Dashboard.js';
 import StoreFront from './components/pages/StoreFront.js';
 import Register from './components/pages/Register.js';
+
 const serverUrl = "https://uclei.herokuapp.com";
 
 function App(){
@@ -32,8 +33,7 @@ function App(){
 
     },[auth]);
 
-    const checkSession = async () => {
-        
+    const checkSession = async () => {        
         const response = await fetch(serverUrl + '/session');
         const body = await response.json();
         return body;
