@@ -25,13 +25,19 @@ function App(){
     useEffect(()=>{
 
         if (auth === undefined){
-            fetch(serverUrl + '/session')
-            .then((res) => res.json())
-            .then((data) => setAuth(data))
+            checkSession()
+            .then((res) => setAuth(res))
             .catch((error) => console.log(error.message));
         }
 
     },[auth]);
+
+    const checkSession = async () => {
+        
+        const response = await fetch(serverUrl + '/session');
+        const body = await response.json();
+        return body;
+    }
 
 
 
