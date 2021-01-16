@@ -114,7 +114,7 @@ class Register extends React.Component {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: this.state.username, password: this.state.password , name: this.state.fullName})
         };
-        const response = await fetch('/register', requestOptions);
+        const response = await fetch(this.props.server + '/register', requestOptions);
         const data = await response.json();
         this.setState({ authenticated: data.authentication});
         console.log(data)

@@ -135,7 +135,7 @@ class Trading extends React.Component {
         let symbol = this.state.stock_found.symbol;
         let quantity = this.state.quantity;
         let limit_price = this.state.limit_price;
-        let target_url = "/sellStock";
+        let target_url = this.props.server + "/sellStock";
         let requestOptions = {};
 
         requestOptions = {
@@ -155,7 +155,7 @@ class Trading extends React.Component {
 
         let symbol = this.state.stock_found.symbol;
         let quantity = this.state.quantity;
-        let target_url = "/buyStock";
+        let target_url = this.props.server + "/buyStock";
         let limit_price = this.state.limit_price;
         let requestOptions = {};
 
@@ -172,7 +172,7 @@ class Trading extends React.Component {
     }
 
     callBackendAPI = async () => {
-          const response = await fetch('/getAccount');
+          const response = await fetch(this.props.server + '/getAccount');
           const body = await response.json();
           if (response.status !== 200) {
             throw Error(body.message)
@@ -222,7 +222,7 @@ class Trading extends React.Component {
             alert("Please enter a search term")
             return;
         }
-        let url = `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
+        let url = this.props.server + `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
         const response = await fetch(url);
         const stock = await response.json();
         if (stock[0].symbol === "D35-C") {
@@ -247,7 +247,7 @@ class Trading extends React.Component {
           alert("Please enter a search term")
           return;
       }
-      let url = `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
+      let url = this.props.server +  `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
       const response = await fetch(url);
       const stock = await response.json();
       if (response.status !== 200) {
@@ -290,7 +290,7 @@ class Trading extends React.Component {
     }
 
     async cancelOrder(orderId){
-        let target_url = "/cancelOrder";
+        let target_url = this.props.server + "/cancelOrder";
         let requestOptions = {};
 
         requestOptions = {
@@ -432,7 +432,7 @@ class Trading extends React.Component {
 
         return (
           <React.Fragment>
-            <Header currentPage={`Trading`} userName={this.state.user.username}/>
+            <Header currentPage={`Trading`} userName={this.state.user.username} server={this.props.server}/>
             <Breakpoint medium up>
               <Container>
                 <Grid container>

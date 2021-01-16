@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
   };
 
   readStock = async() => {
-    const response = await fetch(`/stock-data?search=D35-C`);
+    const response = await fetch(this.props.server + `/stock-data?search=D35-C`);
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -48,7 +48,7 @@ class Dashboard extends React.Component {
   }
 
   fetchMarket = async() => {
-    const response = await fetch(`/all-stocks`);
+    const response = await fetch(this.props.server + `/all-stocks`);
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
 
   // Fetches our GET route to account info from server.js
   callBackendAPI = async () => {
-    const response = await fetch('/getAccount');
+    const response = await fetch(this.props.server + '/getAccount');
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -115,13 +115,13 @@ class Dashboard extends React.Component {
     let username = this.state.user.username;
     return (
       <React.Fragment>
-      <Header currentPage={crtPg} userName={username}/>
+      <Header currentPage={crtPg} userName={username} server={this.props.server}/>
         <Container style={{ width: '95vw', padding: 0 }}>
           <Breakpoint medium up>
             <Grid container>
               <Grid item xs={8}>
                 <Container style={{marginTop: "2.25%"}}>
-                  <LineChartB cData={this.state.stockData}/>
+                  <LineChartB cData={this.state.stockData} server={this.props.server}/>
                   <MarketTable stockData={this.state.market}/>
                 </Container>
               </Grid>

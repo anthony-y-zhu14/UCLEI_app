@@ -42,7 +42,7 @@ class Market extends React.Component {
       //should be get request with query param as id
 
       if(!this.state.query) {
-        const response = await fetch(`/stock-data?search=D35-C`);
+        const response = await fetch(this.props.server + `/stock-data?search=D35-C`);
         const body = await response.json();
         if (response.status !== 200) {
           throw Error(body.message)
@@ -50,7 +50,7 @@ class Market extends React.Component {
         return body;
       }
       else {
-        const response = await fetch(`/stock-data?search=${this.state.query}`);
+        const response = await fetch(this.props.server + `/stock-data?search=${this.state.query}`);
         const body = await response.json();
         if (response.status !== 200) {
           throw Error(body.message)
@@ -77,7 +77,7 @@ class Market extends React.Component {
     }
 
     callPopStock = async() => {
-      const response = await fetch('/pop-stock-data');
+      const response = await fetch(this.props.server + '/pop-stock-data');
       const body = await response.json();
       if (response.status !== 200) {
         throw Error(body.message)
@@ -92,7 +92,7 @@ class Market extends React.Component {
     }
 
     callBackendAPI = async () => {
-        const response = await fetch('/getAccount');
+        const response = await fetch(this.props.server + '/getAccount');
         const body = await response.json();
         if (response.status !== 200) {
           throw Error(body.message)
@@ -106,7 +106,7 @@ class Market extends React.Component {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ item: data })
       };
-      fetch('/delWatchItem', requestOptions);
+      fetch(this.props.server + '/delWatchItem', requestOptions);
       // const data = await response.json();
   
       this.callBackendAPI()
@@ -145,11 +145,11 @@ class Market extends React.Component {
 
         return (
             <React.Fragment>
-              <Header currentPage={`Market`} userName={this.state.user.username}/>
+              <Header currentPage={`Market`} userName={this.state.user.username} server={this.props.server}/>
               <Breakpoint medium up>
                 <Container>
                   <Grid container>
-                      <Grid item xs={12}><LineChart reloadWatchList={this.updateList}/></Grid>
+                      <Grid item xs={12}><LineChart reloadWatchList={this.updateList} server={this.props.server}/></Grid>
                   </Grid>
                   <Grid container spacing={2}>
                     <Grid item xs={6}><CheckboxList w={this.state.user.watchlist} del={this.delWatchItem}/></Grid>
@@ -160,7 +160,7 @@ class Market extends React.Component {
               <Breakpoint small down>
                 <Container>
                   <Grid container>
-                      <Grid item xs={12}><LineChart reloadWatchList={this.updateList}/></Grid>
+                      <Grid item xs={12}><LineChart reloadWatchList={this.updateList} server={this.props.server}/></Grid>
                   </Grid>
                   <Grid container spacing={2}>
                   <div style={{height: "300px", marginTop: "2%"}}>

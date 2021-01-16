@@ -77,7 +77,7 @@ class Account extends React.Component {
     }
 
     callBackendAPI = async () => {
-        const response = await fetch('/getAccount');
+        const response = await fetch(this.props.server + '/getAccount');
         const body = await response.json();
         if (response.status !== 200) {
           throw Error(body.message)
@@ -139,7 +139,7 @@ class Account extends React.Component {
 
     handleSubmit = async (value) => {
 
-      let target_url = "/updateBalance";
+      let target_url = this.props.server + "/updateBalance";
 
       if (this.state.amount <= 0){
         alert("Please enter a valid amount");
@@ -185,7 +185,7 @@ class Account extends React.Component {
 
         return(
           <React.Fragment>
-            <Header currentPage={`Account`} userName={this.state.user.name}/>
+            <Header currentPage={`Account`} userName={this.state.user.name} server={this.props.server}/>
             <Container style={{ width: '95vw', padding: 0 }}>
             <Container className={classes.acctCard}>
               <h2>{this.state.user.name}</h2>

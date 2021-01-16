@@ -116,9 +116,9 @@ class LineChart extends React.Component {
   readFilter = async() => {
     let url;
     if(!this.state.query) {
-      url = `/stocks/history/?symbol=D35-C&startDate=${formatISO(this.state.selectedStartDate, { representation: 'date'})}&endDate=${formatISO(this.state.selectedEndDate,{ representation: 'date'})}`
+      url = this.props.server + `/stocks/history/?symbol=D35-C&startDate=${formatISO(this.state.selectedStartDate, { representation: 'date'})}&endDate=${formatISO(this.state.selectedEndDate,{ representation: 'date'})}`
     } else {
-      url = `/stocks/history/?symbol=${window.location.href.slice(29)}&startDate=${formatISO(this.state.selectedStartDate, { representation: 'date'})}&endDate=${formatISO(this.state.selectedEndDate,{ representation: 'date'})}`
+      url = this.props.server + `/stocks/history/?symbol=${window.location.href.slice(29)}&startDate=${formatISO(this.state.selectedStartDate, { representation: 'date'})}&endDate=${formatISO(this.state.selectedEndDate,{ representation: 'date'})}`
     }
     const response = await fetch(url);
     const body = await response.json();

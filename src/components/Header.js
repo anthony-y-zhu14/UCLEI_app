@@ -155,7 +155,7 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
   const handleSubmit = async (event) => {
 
     if(event.charCode === 13) {      
-      let url = `/stock-data?search=${event.target.value.toUpperCase()}`;
+      let url = this.props.server + `/stock-data?search=${event.target.value.toUpperCase()}`;
         const response = await fetch(url);
         const stock = await response.json();
         if (stock[0].symbol === "D35-C") {
