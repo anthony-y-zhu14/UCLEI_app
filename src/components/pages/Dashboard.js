@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
   };
 
   readStock = async() => {
-    const response = await fetch(this.props.server + `/stock-data?search=D35-C`);
+    const response = await fetch(this.props.server + `/stock-data?search=D35-C`, {credentials:"include"});
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
 
   // Fetches our GET route to account info from server.js
   callBackendAPI = async () => {
-    const response = await fetch(this.props.server + '/getAccount');
+    const response = await fetch(this.props.server + '/getAccount', {credentials:"include"});
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
