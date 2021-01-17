@@ -106,6 +106,7 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
   const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
+  
   const callBackendAPI = async () => {
     const response = await fetch('/logout', {credentials:"include"});
     const body = await response.json();
