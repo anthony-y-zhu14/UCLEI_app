@@ -91,7 +91,7 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
   const history = useHistory();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [search, setSearch] = React.useState(null);
+  const [search, setSearch] = React.useState('');
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [eventsList, setEventsList] = React.useState(null);
   const [notifications, setNotifications] = React.useState(null);
