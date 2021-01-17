@@ -42,7 +42,7 @@ class Market extends React.Component {
       //should be get request with query param as id
 
       if(!this.state.query) {
-        const response = await fetch(this.props.server + `/stock-data?search=D35-C`);
+        const response = await fetch(this.props.server + `/stock-data?search=D35-C`, {credentials:"include"});
         const body = await response.json();
         if (response.status !== 200) {
           throw Error(body.message)
@@ -50,7 +50,7 @@ class Market extends React.Component {
         return body;
       }
       else {
-        const response = await fetch(this.props.server + `/stock-data?search=${this.state.query}`);
+        const response = await fetch(this.props.server + `/stock-data?search=${this.state.query}`, {credentials:"include"});
         const body = await response.json();
         if (response.status !== 200) {
           throw Error(body.message)
@@ -77,7 +77,7 @@ class Market extends React.Component {
     }
 
     callPopStock = async() => {
-      const response = await fetch(this.props.server + '/pop-stock-data');
+      const response = await fetch(this.props.server + '/pop-stock-data', {credentials:"include"});
       const body = await response.json();
       if (response.status !== 200) {
         throw Error(body.message)
@@ -92,7 +92,7 @@ class Market extends React.Component {
     }
 
     callBackendAPI = async () => {
-        const response = await fetch(this.props.server + '/getAccount');
+        const response = await fetch(this.props.server + '/getAccount', {credentials:"include"});
         const body = await response.json();
         if (response.status !== 200) {
           throw Error(body.message)
@@ -103,6 +103,7 @@ class Market extends React.Component {
     delWatchItem = data => {
       const requestOptions = {
           method: 'POST',
+          credentials:"include",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ item: data })
       };

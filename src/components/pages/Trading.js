@@ -140,6 +140,7 @@ class Trading extends React.Component {
 
         requestOptions = {
             method: 'POST',
+            credentials:"include",
             headers: { 'Content-Type': "application/json" },
             body: JSON.stringify({ name: symbol, n: quantity , limit_price: limit_price})
         }
@@ -162,6 +163,7 @@ class Trading extends React.Component {
         requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': "application/json" },
+            credentials:"include",
             body: JSON.stringify({ name: symbol, n: quantity , limit_price: limit_price})
         }
 
@@ -172,7 +174,7 @@ class Trading extends React.Component {
     }
 
     callBackendAPI = async () => {
-          const response = await fetch(this.props.server + '/getAccount');
+          const response = await fetch(this.props.server + '/getAccount', {credentials:"include"});
           const body = await response.json();
           if (response.status !== 200) {
             throw Error(body.message)
@@ -223,7 +225,7 @@ class Trading extends React.Component {
             return;
         }
         let url = this.props.server + `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
-        const response = await fetch(url);
+        const response = await fetch(url, {credentials:"include"});
         const stock = await response.json();
         if (stock[0].symbol === "D35-C") {
           alert("Failed to find a stock with that symbol");
@@ -248,7 +250,7 @@ class Trading extends React.Component {
           return;
       }
       let url = this.props.server +  `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
-      const response = await fetch(url);
+      const response = await fetch(url, {credentials:"include"});
       const stock = await response.json();
       if (response.status !== 200) {
           throw Error(stock.message)
@@ -295,6 +297,7 @@ class Trading extends React.Component {
 
         requestOptions = {
             method: 'POST',
+            credentials:"include",
             headers: { 'Content-Type': "application/json" },
             body: JSON.stringify(orderId)
         }

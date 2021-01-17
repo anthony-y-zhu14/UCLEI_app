@@ -120,7 +120,7 @@ class LineChart extends React.Component {
     } else {
       url = this.props.server + `/stocks/history/?symbol=${window.location.href.slice(29)}&startDate=${formatISO(this.state.selectedStartDate, { representation: 'date'})}&endDate=${formatISO(this.state.selectedEndDate,{ representation: 'date'})}`
     }
-    const response = await fetch(url);
+    const response = await fetch(url, {credentials:"include"});
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -135,7 +135,7 @@ class LineChart extends React.Component {
   readStock = async() => {
     //should be get request with query param as id
     if(window.location.href.slice(29) === "") {
-      const response = await fetch(`/stock-data?search=D35-C`);
+      const response = await fetch(`/stock-data?search=D35-C`, {credentials:"include"});
       const body = await response.json();
 
       if (response.status !== 200) {
@@ -148,7 +148,7 @@ class LineChart extends React.Component {
 
       return body;
     }
-    const response = await fetch(`/stock-data?search=${window.location.href.slice(29)}`);
+    const response = await fetch(`/stock-data?search=${window.location.href.slice(29)}`, {credentials:"include"});
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -165,6 +165,7 @@ class LineChart extends React.Component {
   handleWatchSave = (value) => {
     const requestOptions = {
         method: 'POST',
+        credentials:"include",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ value })
     };
