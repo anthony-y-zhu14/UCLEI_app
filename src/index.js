@@ -23,7 +23,7 @@ const theme = createMuiTheme({
         position: "relative",
         marginTop: "5%",
         "& $notchedOutline": {
-          borderColor: "#fff"
+          borderColor: "#FFFFFF"
         },
         "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
           borderColor: "#6C9FF8",
@@ -42,7 +42,7 @@ const theme = createMuiTheme({
     MuiFormLabel: {
       root: {
         marginTop: "5%",
-        color: "#fff"
+        color: "#FFFFFF"
       }
     }
   }

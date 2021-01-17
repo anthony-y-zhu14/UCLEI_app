@@ -145,7 +145,7 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
       throw Error(body.message);
     }
     sleep(5000).then(() => {
-      setNotifications(body.count);
+      if (body.count) setNotifications(body.count);
     });    
   }
 

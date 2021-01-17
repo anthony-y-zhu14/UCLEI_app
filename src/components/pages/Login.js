@@ -26,11 +26,11 @@ class Login extends React.Component {
         };
         this.login = this.login.bind(this);
     }
-    componentWillUnmount() {
-      this.setState = ()=>{
-        return;
-      };
-    }
+    // componentWillUnmount() {
+    //   this.setState = ()=>{
+    //     return;
+    //   };
+    // }
     componentDidMount() {
       if (this.props.session_id){
         this.navToDsh();

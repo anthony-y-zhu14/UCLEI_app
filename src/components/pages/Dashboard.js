@@ -105,10 +105,10 @@ class Dashboard extends React.Component {
     }
     if(!this.state.session_id) {
       return (
-        <React.Fragment className={classes.error}>
+        <div className={classes.error}>
           <h1>401 Not Authorized.</h1>
           <a href="\login">Go back to Login</a>
-        </React.Fragment>
+        </div>
       );
     }
     let crtPg = 'Dashboard';

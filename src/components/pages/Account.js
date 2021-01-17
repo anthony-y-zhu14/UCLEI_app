@@ -77,7 +77,7 @@ class Account extends React.Component {
     }
 
     callBackendAPI = async () => {
-        const response = await fetch(this.props.server + '/getAccount', {credentials:"include"});
+        const response = await fetch(this.props.server + '/getAccount');
         const body = await response.json();
         if (response.status !== 200) {
           throw Error(body.message)
@@ -152,7 +152,6 @@ class Account extends React.Component {
 
       const requestOptions = {
           method: 'POST',
-          credentials:"include",
           headers: { 'Content-Type': "application/json" },
           body: JSON.stringify({amount: this.state.amount, type: this.state.type})
       }
