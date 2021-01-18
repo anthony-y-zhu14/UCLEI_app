@@ -135,12 +135,11 @@ class Trading extends React.Component {
         let symbol = this.state.stock_found.symbol;
         let quantity = this.state.quantity;
         let limit_price = this.state.limit_price;
-        let target_url = this.props.server + "/sellStock";
+        let target_url = "/sellStock";
         let requestOptions = {};
 
         requestOptions = {
             method: 'POST',
-            credentials:"include",
             headers: { 'Content-Type': "application/json" },
             body: JSON.stringify({ name: symbol, n: quantity , limit_price: limit_price})
         }
@@ -156,14 +155,13 @@ class Trading extends React.Component {
 
         let symbol = this.state.stock_found.symbol;
         let quantity = this.state.quantity;
-        let target_url = this.props.server + "/buyStock";
+        let target_url = "/buyStock";
         let limit_price = this.state.limit_price;
         let requestOptions = {};
 
         requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': "application/json" },
-            credentials:"include",
             body: JSON.stringify({ name: symbol, n: quantity , limit_price: limit_price})
         }
 
@@ -174,7 +172,7 @@ class Trading extends React.Component {
     }
 
     callBackendAPI = async () => {
-          const response = await fetch(this.props.server + '/getAccount', {credentials:"include"});
+          const response = await fetch('/getAccount');
           const body = await response.json();
           if (response.status !== 200) {
             throw Error(body.message)
@@ -224,8 +222,8 @@ class Trading extends React.Component {
             alert("Please enter a search term")
             return;
         }
-        let url = this.props.server + `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
-        const response = await fetch(url, {credentials:"include"});
+        let url = `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
+        const response = await fetch(url);
         const stock = await response.json();
         if (stock[0].symbol === "D35-C") {
           alert("Failed to find a stock with that symbol");
@@ -249,8 +247,8 @@ class Trading extends React.Component {
           alert("Please enter a search term")
           return;
       }
-      let url = this.props.server +  `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
-      const response = await fetch(url, {credentials:"include"});
+      let url = `/stock-data?search=${this.state.search_symbol.toUpperCase()}`;
+      const response = await fetch(url);
       const stock = await response.json();
       if (response.status !== 200) {
           throw Error(stock.message)
@@ -292,12 +290,11 @@ class Trading extends React.Component {
     }
 
     async cancelOrder(orderId){
-        let target_url = this.props.server + "/cancelOrder";
+        let target_url = "/cancelOrder";
         let requestOptions = {};
 
         requestOptions = {
             method: 'POST',
-            credentials:"include",
             headers: { 'Content-Type': "application/json" },
             body: JSON.stringify(orderId)
         }
@@ -435,7 +432,7 @@ class Trading extends React.Component {
 
         return (
           <React.Fragment>
-            <Header currentPage={`Trading`} userName={this.state.user.username} server={this.props.server}/>
+            <Header currentPage={`Trading`} userName={this.state.user.username}/>
             <Breakpoint medium up>
               <Container>
                 <Grid container>

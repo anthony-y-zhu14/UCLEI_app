@@ -26,13 +26,11 @@ class Login extends React.Component {
         };
         this.login = this.login.bind(this);
     }
-    
     componentWillUnmount() {
       this.setState = ()=>{
         return;
       };
     }
-
     componentDidMount() {
       if (this.props.session_id){
         this.navToDsh();
@@ -47,11 +45,10 @@ class Login extends React.Component {
       }
         const requestOptions = {
             method: 'POST',
-            credentials:"include",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
         };
-        const response = await fetch(this.props.server + '/authentication', requestOptions);
+        const response = await fetch('/authentication', requestOptions);
         const data = await response.json();
         this.setState({ authenticated: data.authentication});
 

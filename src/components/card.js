@@ -37,7 +37,7 @@ const MediaCard = ({articleImg, articleSource, articleDesc, articleLink}) => {
           <Typography gutterBottom variant="h5" component="h2">
             {articleSource}
           </Typography>
-          <Typography variant="body2" component="p">
+          <Typography variant="body2" color="#fff" component="p">
           {articleDesc}
           </Typography>
         </CardContent>

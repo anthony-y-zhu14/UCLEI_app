@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
   };
 
   readStock = async() => {
-    const response = await fetch(this.props.server + `/stock-data?search=D35-C`, {credentials:"include"});
+    const response = await fetch(`/stock-data?search=D35-C`);
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -48,7 +48,7 @@ class Dashboard extends React.Component {
   }
 
   fetchMarket = async() => {
-    const response = await fetch(this.props.server + `/all-stocks`);
+    const response = await fetch(`/all-stocks`);
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
 
   // Fetches our GET route to account info from server.js
   callBackendAPI = async () => {
-    const response = await fetch(this.props.server + '/getAccount', {credentials:"include"});
+    const response = await fetch('/getAccount');
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -105,23 +105,23 @@ class Dashboard extends React.Component {
     }
     if(!this.state.session_id) {
       return (
-        <div className={classes.error}>
+        <React.Fragment className={classes.error}>
           <h1>401 Not Authorized.</h1>
           <a href="\login">Go back to Login</a>
-        </div>
+        </React.Fragment>
       );
     }
     let crtPg = 'Dashboard';
     let username = this.state.user.username;
     return (
       <React.Fragment>
-      <Header currentPage={crtPg} userName={username} server={this.props.server}/>
+      <Header currentPage={crtPg} userName={username}/>
         <Container style={{ width: '95vw', padding: 0 }}>
           <Breakpoint medium up>
             <Grid container>
               <Grid item xs={8}>
                 <Container style={{marginTop: "2.25%"}}>
-                  <LineChartB cData={this.state.stockData} server={this.props.server}/>
+                  <LineChartB cData={this.state.stockData}/>
                   <MarketTable stockData={this.state.market}/>
                 </Container>
               </Grid>

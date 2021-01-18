@@ -75,7 +75,6 @@ class LineChartB extends React.Component {
   handleWatchSave = async(value) => {
     const requestOptions = {
         method: 'POST',
-        credentials:"include",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ value })
     };

@@ -89,12 +89,11 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
 
   const classes = useStyles();
   const history = useHistory();
-  const eventsList = null;
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [search, setSearch] = React.useState('');
+  const [search, setSearch] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  // const [eventsList, setEventsList] = React.useState(null);
+  const [eventsList, setEventsList] = React.useState(null);
   const [notifications, setNotifications] = React.useState(null);
 
 
@@ -107,9 +106,8 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
   const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
-  
   const callBackendAPI = async () => {
-    const response = await fetch('/logout', {credentials:"include"});
+    const response = await fetch('/logout');
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message)
@@ -140,13 +138,13 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
   // }
 
   const getNotifications = async () => {
-    const response = await fetch('/getNotified', {credentials:"include"});
+    const response = await fetch('/getNotified');
     const body = await response.json();
     if(response.status !== 200) {
       throw Error(body.message);
     }
     sleep(5000).then(() => {
-      if (body.count) setNotifications(body.count);
+      setNotifications(body.count);
     });    
   }
 
@@ -157,8 +155,8 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
   const handleSubmit = async (event) => {
 
     if(event.charCode === 13) {      
-      let url = this.props.server + `/stock-data?search=${event.target.value.toUpperCase()}`;
-        const response = await fetch(url, {credentials:"include"});
+      let url = `/stock-data?search=${event.target.value.toUpperCase()}`;
+        const response = await fetch(url);
         const stock = await response.json();
         if (stock[0].symbol === "D35-C") {
           alert("Failed to find a stock with that symbol");
