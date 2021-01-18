@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
-const databasePath = '.';
+const databasePath = process.cwd() + '/UCLEI_server';
 
 module.exports = {  
     createOpenOrder,

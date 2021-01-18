@@ -1,6 +1,6 @@
 const fs = require("fs");
 const stockOrder = require("./stockOrder.js");
-const databasePath = '.';
+const databasePath = process.cwd() + '/UCLEI_server';
 
 module.exports = {
     resetStock,

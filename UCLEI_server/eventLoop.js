@@ -1,6 +1,6 @@
 const fs = require("fs");
 let count = [];
-const databasePath = '.';
+const databasePath = process.cwd() + '/UCLEI_server';
 
 module.exports = {
   getCount,

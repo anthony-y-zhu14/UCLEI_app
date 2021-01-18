@@ -9,7 +9,7 @@ const stockOrder = require("./stockOrder.js");
 const serverReset = require("./serverRest.js");
 let users = {};
 
-const databasePath = '.';
+const databasePath = process.cwd() + '/UCLEI_server';
 
 const publicPath = path.join(__dirname, '../build');
 app.use(express.static(publicPath));
