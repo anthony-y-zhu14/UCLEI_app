@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/SideNav.css";
+import "../css/SideNav.css";
 import {withRouter} from 'react-router-dom';
 // import Modal from '@material-ui/core/Modal';
 

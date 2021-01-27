@@ -47,14 +47,6 @@ const background = (
             "value": "#6c9ff8",            
           }
       },
-      "interactivity": {
-          "events": {
-              "onhover": {
-                  "enable": true,
-                  "mode": "repulse"
-              }
-          }
-      },
 
   }} />
 );
@@ -86,8 +78,7 @@ class StoreFront extends React.Component {
                    <Typography variant="h6" className={classes.title}>
         
                             UCLEI is a stock trading simulation website that provides a safe, easy-to-use sandbox environment for users to experience how stock market trading works.
-                            Simply create an account and you will be welcomed to the website and free to explore the excitement of stock trading without consequence! However, do be careful,
-                            press the wrong button, and you could lose everything.
+                            Simply create an account and you will be welcomed to the website and free to explore the excitement of stock trading without consequence!
                     </Typography>
                     <br />
                     <Typography variant="p" className={classes.title}>

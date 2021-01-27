@@ -135,14 +135,6 @@ class Login extends React.Component {
                     "value": 4
                 }
             },
-            "interactivity": {
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    }
-                }
-          }
         }} />
       );
 
