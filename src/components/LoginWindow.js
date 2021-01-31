@@ -1,0 +1,228 @@
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import  { Breakpoint} from 'react-socks';
+import { Container, TextField, Zoom } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        color: "#fff"
+      },
+      lTitle: {
+        fontSize: 56
+      },
+      lFont: {
+        fontSize: 46
+      },
+      xlTitle: {
+        fontsize: 200
+      },
+      loginContainer: {
+        margin: '3% auto',
+        paddingBottom: '4%',
+        width: 300,
+        background: '#202023',
+        color: '#fff',
+        borderRadius: "15px",
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+      },
+      LloginContainer: {
+        margin: '2% auto',
+        padding: '4%',
+        fontSize: 40,
+        width: 1000,
+        background: '#202023',
+        color: '#fff',
+        borderRadius: "15px",
+        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+      },
+      input: {
+        color: "#fff",
+        zIndex: 5
+      },
+      lBtn: {
+        width: 200,
+        fontSize: 18,
+        height: 80,
+        margin: 10
+      },
+      lgnBtn:{
+        width: 100,
+        height: 40,
+        margin: 10
+      },
+      rgsBtn:{
+        width: 100,
+        height: 40,
+        margin: 10
+      },
+      Linput: {
+        color: "#fff",
+        fontSize: 40,
+        borderRadius: "15px",
+      },
+      LWrapper: {
+        display: 'flex',
+        position: 'relative',
+        flexWrap: 'wrap',
+        overflowX: 'hidden',
+        overflowY: 'hidden',
+        margin: '3%',
+        width: 4000
+      },
+      xsWrapper: {
+        overflowX: 'hidden',
+        display: 'flex',
+        overflowY: 'hidden',
+        position: 'relative',
+        flexWrap: 'wrap',
+        margin: '5%',
+        width: 500
+      },
+      wrapper: {
+        overflowX: 'hidden',
+        overflowY: 'hidden',
+        display: 'flex',
+        position: 'relative',
+        flexWrap: 'wrap',
+        margin: '5%',
+        width: '100%'
+      },
+      lottie: {
+        margin: '5%',
+        float: 'right',
+      },
+      sbuttonContainer: {
+        marginTop: 10,
+        width: 300,
+        display: 'flex',
+        flexWrap: 'wrap'
+      },
+      xsbuttonContainer: {
+        marginTop: 10,
+        width: 190,
+        display: 'flex',
+        flexWrap: 'wrap'
+      },
+      LbuttonContainer: {
+        width: 400,
+        marginLeft: -100,
+        marginTop: 20
+      },
+      innerContainer : {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around'
+      },
+      txtFldCont : {
+        fontSize: 48
+      },
+      txtFld: {
+        display: 'flex',
+        width: 250,
+        zIndex: 5
+      },
+      xstxtFldCont : {
+        width: '100%',
+        zIndex: 5
+  
+      },
+      xstxtFld: {
+        display: 'flex',
+        width: 150,
+        zIndex: 5
+  
+      },
+      LtxtFld: {
+        display: 'flex',
+        width: 480,
+        zIndex: 5,
+        fontSize: 48
+      },
+      LtxtFldCont : {
+        fontSize: 40,
+        zIndex: 5
+  
+      },
+      lottieCont: {
+        width: '40%',
+        marginTop: -50,
+        marginLeft: 50,
+        float: 'right'
+      },
+    }));
+
+export default function LoginWindow () {
+    const classes = useStyles();
+
+    const [state, setState] = React.useState(
+        { 
+            username: "",
+            password: "",
+            helperText: '',
+            helperTextPsw: '',
+            id: 'outlined-basic',
+            authenticated: false,
+            errorPsw: false,
+            errorUsr: false
+        }           
+    );
+
+    const content = (size, classSize) => {           
+   
+        const formContent = (
+          <Grid container>
+            <Grid item xs={12}>
+                  <h1> UCLEI </h1>
+                  <h3>Welcome,</h3>
+                  <p>We're happy to see you back.</p>
+  
+              <TextField id={state.id} label="Username" error={state.errorUsr}
+              InputProps={{classes: {
+                input: classSize,
+                },
+              }} helperText={state.helperText}
+              InputLabelProps={{style:{fontSize:size}}}
+              variant="outlined"  value = {state.username} />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField helperText={state.helperTextPsw} error={state.errorPsw} label="Password" variant="outlined" type="password" InputProps={{classes: {input: classSize,},}} 
+              InputLabelProps={{style:{fontSize:size, borderRadius: "15px"}}}
+              value = {state.password} />
+            </Grid>
+            <Grid item xs={12}>
+              <Button className={classes.lgnBtn} variant="contained" color="primary" >Login</Button>
+              <Button className={classes.rgsBtn} variant="contained" color="primary" >Register</Button> 
+            </Grid>
+          </Grid>
+        );  
+        return formContent;
+    }
+
+    return (        
+        <Zoom in={true}>   
+        <Container>
+            <Breakpoint large up>
+            <React.Fragment>
+                <form className={classes.LloginContainer}>
+                <div  className={classes.wrapper} style={{margin: 40}}>
+                        {content(28, classes.Linput)}
+                    </div>
+                </form>
+            </React.Fragment>
+            </Breakpoint>
+
+            <Breakpoint medium down>
+            <React.Fragment>
+            <form className={classes.loginContainer}>
+            <div className={classes.wrapper} style={{margin: '6%'}}>
+                    {content(16, classes.input)}
+                </div>
+            </form>
+            </React.Fragment>
+            </Breakpoint>
+      </Container>
+      </Zoom>
+    )
+}

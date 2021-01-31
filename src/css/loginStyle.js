@@ -23,7 +23,7 @@ const returnStyles = function() {
     },
     LloginContainer: {
       margin: '2% auto',
-      paddingBottom: '4%',
+      padding: '4%',
       fontSize: 40,
       width: 1000,
       background: '#202023',

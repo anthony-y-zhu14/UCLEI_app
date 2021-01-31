@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button, ButtonGroup, Container, LinearProgress, TextField } from '@material-ui/core';
-import Header from "../Header";
+import Header from "../components/Header";
 import  { Breakpoint } from 'react-socks';
 import '../css/Trading.css'
 import { withStyles } from '@material-ui/styles';
 import { fade } from '@material-ui/core/styles';
-import Fourohone from '../fourohone.js';
+import Fourohone from '../components/fourohone.js';
 import SearchIcon from '@material-ui/icons/Search';
 import Grid from '@material-ui/core/Grid';
 

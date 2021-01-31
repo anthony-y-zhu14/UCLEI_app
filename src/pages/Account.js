@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button, ButtonGroup, Container, LinearProgress } from '@material-ui/core';
-import Header from "../Header";
+import Header from "../components/Header";
 import  { Breakpoint } from 'react-socks';
 import { withStyles } from "@material-ui/core/styles";
 import { TextField } from '@material-ui/core';
-import Fourohone from '../fourohone.js';
-import OutlinedCard from '../OutlinedCard.js';
+import Fourohone from '../components/fourohone.js';
+import OutlinedCard from '../components/OutlinedCard.js';
 import Grid from '@material-ui/core/Grid';
-import AccountTable from '../acctTable.js';
+import AccountTable from '../components/acctTable.js';
 
 
 import "../css/Account.css"

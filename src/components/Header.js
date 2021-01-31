@@ -93,8 +93,6 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [search, setSearch] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const [eventsList, setEventsList] = React.useState(null);
-  const [notifications, setNotifications] = React.useState(null);
 
 
   const isMenuOpen = Boolean(anchorEl);
@@ -103,9 +101,7 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const sleep = (milliseconds) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-  }
+
   const callBackendAPI = async () => {
     const response = await fetch('/logout');
     const body = await response.json();
@@ -115,38 +111,6 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
     return body;
   };
 
-  // const getEventsList = async () => {
-  //   const response = await fetch('/getEvents');
-  //   const body = await response.json();
-  //   if(response.status !== 200) {
-  //     throw Error(body.message);
-  //   }
-  //   sleep(10000).then(() => {
-  //   setEventsList(body);
-  // });    
-  // }
-
-  // const getEventsListNow = async () => {
-  //   const response = await fetch('/getEvents');
-  //   const body = await response.json();
-  //   if(response.status !== 200) {
-  //     throw Error(body.message);
-  //   }
-    
-  //   setEventsList(body);
-    
-  // }
-
-  const getNotifications = async () => {
-    const response = await fetch('/getNotified');
-    const body = await response.json();
-    if(response.status !== 200) {
-      throw Error(body.message);
-    }
-    sleep(5000).then(() => {
-      setNotifications(body.count);
-    });    
-  }
 
   const setSearchQuery = (event) => {
       setSearch(event.target.value);
@@ -172,10 +136,6 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
       history.push(location);
     }
 }
-
-useEffect(() => {  
-  getNotifications();
-});
 
   const logout = (value) => {
     callBackendAPI()
@@ -227,14 +187,6 @@ useEffect(() => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        
-        <IconButton color="inherit">
-          <NotificationsForm notifynums={notifications}stockData={eventsList}/>          
-        </IconButton>
-        
-        
-      </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -276,9 +228,6 @@ useEffect(() => {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton color="inherit">
-            <NotificationsForm  notifynums={notifications} stockData={eventsList}/>
-            </IconButton>
             <IconButton
               edge="end"
               aria-label="account of current user"

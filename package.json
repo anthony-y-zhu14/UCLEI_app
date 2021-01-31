@@ -30,7 +30,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "node UCLEI_server/server.js",
+    "start": "react-scripts start",
+    "server": "node UCLEI_server/server.js",
     "heroku-postbuild": "npm run build && cd UCLEI_server && npm install",
     "build": "react-scripts build",
     "test": "react-scripts test",

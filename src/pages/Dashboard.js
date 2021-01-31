@@ -1,14 +1,14 @@
 import React from 'react';
-import Header from "../Header.js";
+import Header from "../components/Header.js";
 import  { Breakpoint } from 'react-socks';
 import { Container } from '@material-ui/core';
-import NewsList from '../NewsList.js';
+import NewsList from '../components/NewsList.js';
 import { withStyles } from "@material-ui/core/styles";
 import { LinearProgress } from '@material-ui/core';
-import Fourohone from '../fourohone.js';
-import LineChartB from '../lineChartB.js';
-import MarketTable from '../marketTable.js';
-import AccountData from '../AccountData.js';
+import Fourohone from '../components/fourohone.js';
+import LineChartB from '../components/lineChartB.js';
+import MarketTable from '../components/marketTable.js';
+import AccountData from '../components/AccountData.js';
 import Grid from '@material-ui/core/Grid';
 
 const styles = {

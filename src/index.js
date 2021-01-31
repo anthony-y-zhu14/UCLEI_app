@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 
@@ -14,7 +13,7 @@ const theme = createMuiTheme({
     main: "#6C9FF8;"
     },
     secondary: {
-    main: "#B8B9BD",
+    main: "#fff",
     }
   },
 

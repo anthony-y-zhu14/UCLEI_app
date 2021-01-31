@@ -1,12 +1,12 @@
 import React from 'react';
 import { withStyles } from "@material-ui/core/styles";
-import NewsList from '../NewsList.js';
-import Header from "../Header.js";
+import NewsList from '../components/NewsList.js';
+import Header from "../components/Header.js";
 import  { Breakpoint } from 'react-socks';
 import { Container, LinearProgress } from '@material-ui/core';
-import CheckboxList from '../Watchlist.js';
-import LineChart from '../Linechart.js';
-import Fourohone from '../fourohone.js';
+import CheckboxList from '../components/Watchlist.js';
+import LineChart from '../components/Linechart.js';
+import Fourohone from '../components/fourohone.js';
 import Grid from '@material-ui/core/Grid';
 
 const styles = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Lottie from 'react-lottie'
-import animationData from './images/401.json'
+import animationData from '../images/401.json'
 
 class Fourohone extends Component {
 

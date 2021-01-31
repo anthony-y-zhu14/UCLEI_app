@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import {withRouter} from 'react-router-dom';
 import compose from 'recompose/compose'
 import  { Breakpoint} from 'react-socks';
-import UncontrolledLottie from "../UncontrolledLottie";
+import UncontrolledLottie from "../components/UncontrolledLottie";
 import Grid from '@material-ui/core/Grid';
 
 const styles = {
