@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
     BrowserRouter as Router,
     Route,
@@ -6,26 +6,18 @@ import {
 } from 'react-router-dom';
 import  { BreakpointProvider } from 'react-socks';
 import Intro from './pages/Intro.js';
+import Dashboard from './pages/Dashboard.js'
 
 
-export default  function App(){
-    const [auth, setAuth] = useState(false);
-
-    async function checkSession() {
-        const response = await fetch("/session");
-        const body = response.json;
-        if (response.status !== 200) {
-            throw Error(body.message)
-          }
-          return body;
-    }
+export default function App(){
 
     return (
         <React.Fragment>
             <BreakpointProvider>
                 <Router>
                         <Switch>
-                            <Route exact path="/" component={()=> <Intro auth={auth}/>}/>                        
+                            <Route exact path="/" component={()=> <Intro />}/>
+                            <Route path="/Dashboard" component={()=> <Dashboard />}/>                         
                         </Switch>
                 </Router>
             </BreakpointProvider>

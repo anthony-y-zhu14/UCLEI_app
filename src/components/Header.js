@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import NotificationsForm from './Notifications.js';
+import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';

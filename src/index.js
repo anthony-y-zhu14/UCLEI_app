@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
-import { getThemeProps } from '@material-ui/styles';
 
 
 const colorTheme = createMuiTheme({
@@ -12,10 +11,12 @@ const colorTheme = createMuiTheme({
     primary: {
     main: "#6C9FF8;",
     active: "#4f88ed",
-    contrastText: '#fff'
+    contrastText: '#000'
     },
     secondary: {
-    main: "#B8B9BD",
+    main: "#fff",
+    active: "#fff",
+    contrastText: '#000'
     }
   },
 })
