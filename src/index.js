@@ -4,26 +4,44 @@ import './index.css';
 import App from './App';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
+import { getThemeProps } from '@material-ui/styles';
 
 
-const theme = createMuiTheme({
-  palette:
-  {
+const colorTheme = createMuiTheme({
+  palette:  {
     primary: {
-    main: "#6C9FF8;"
+    main: "#6C9FF8;",
+    active: "#4f88ed",
+    contrastText: '#fff'
     },
     secondary: {
-    main: "#fff",
+    main: "#B8B9BD",
     }
   },
-
+})
+const overridesTheme = createMuiTheme({
   overrides: {
+    MuiButton: {
+      contained: {
+      backgroundColor: colorTheme.palette.primary.main,
+      color: colorTheme.palette.primary.contrastText,
+      "&:hover": {
+        backgroundColor: colorTheme.palette.primary.active,
+      },
+      },
+      outlined: {
+        color: colorTheme.palette.primary.main,
+        "&:hover": {
+          backgroundColor: colorTheme.palette.primary.active,
+        },
+      },
+    },
     MuiOutlinedInput: {
       root: {
         position: "relative",
         marginTop: "5%",
         "& $notchedOutline": {
-          borderColor: "#FFFFFF"
+          borderColor: "#000"
         },
         "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
           borderColor: "#6C9FF8",
@@ -42,15 +60,20 @@ const theme = createMuiTheme({
     MuiFormLabel: {
       root: {
         marginTop: "5%",
-        color: "#FFFFFF"
+        color: "#000"
       }
     }
   }
 })
 
+const themes = createMuiTheme({
+  palette: colorTheme.palette,
+  overrides: overridesTheme.overrides
+})
+
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={themes}>
     <App />
   </ThemeProvider>,
   document.getElementById('root')
