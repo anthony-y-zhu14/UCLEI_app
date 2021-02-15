@@ -11,7 +11,7 @@ const colorTheme = createMuiTheme({
     primary: {
     main: "#6C9FF8;",
     active: "#4f88ed",
-    contrastText: '#000'
+    contrastText: '#fff'
     },
     secondary: {
     main: "#fff",
@@ -33,7 +33,7 @@ const overridesTheme = createMuiTheme({
       outlined: {
         color: colorTheme.palette.primary.main,
         "&:hover": {
-          backgroundColor: colorTheme.palette.primary.active,
+          backgroundColor: colorTheme.palette.primary.active, 
         },
       },
     },

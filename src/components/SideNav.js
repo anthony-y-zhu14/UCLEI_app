@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import { Button, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import DashboardIcon from '@material-ui/icons/Dashboard';
@@ -11,20 +11,35 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     list: {
+        margin: 0,
         top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        textAlign: 'center'
+    },
+    homeBtn: {
+        margin: 0,
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        textAlign: 'center'
     }
   }));
 
 
 let links = {
-  act: '/account',
-  dsh: '/dashboard',
-  trd: '/trading',
-  mrk: '/market'
+    home: '/',
+    act: '/account',
+    dsh: '/dashboard',
+    trd: '/trading',
+    mrk: '/market'
 };
 
 export default function SideNav() {
     const classes = useStyles();
+    const navToHome = () => {
+        window.location = links.home;
+    }
     const navToAct = () => {
         window.location = links.act;
     }
@@ -38,8 +53,10 @@ export default function SideNav() {
         window.location.href = links.mrk;
     }
     return(
-            <React.Fragment>
             <List className={classes.list}>
+                    <ListItem>
+                        <Button className={classes.homeBtn} size='large' variant='contained' onClick={navToHome}>Home</Button>
+                    </ListItem>
                     <ListItem button onClick={navToDsh}>
                         <ListItemIcon><DashboardIcon /></ListItemIcon>
                         <ListItemText>Dashboard</ListItemText>
@@ -57,6 +74,5 @@ export default function SideNav() {
                         <ListItemText>Market</ListItemText>
                     </ListItem>
             </List>
-            </React.Fragment>
         );
 }
