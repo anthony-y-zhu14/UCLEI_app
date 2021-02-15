@@ -1,10 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { Fade, Paper, TextField, Typography } from '@material-ui/core';
+import { Grow, Paper, TextField, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Register_Lottie from '../images/Lottie_Register'
-import Lottie_Register from '../images/Lottie_Register';
+import LottieRegister from '../images/Lottie_Register';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,9 +24,9 @@ export default function RegisterWindow () {
     const [last_name, setLastName] = React.useState(undefined);
 
     return (        
-      <Fade in={true}>   
+      <Grow in={true}>   
       <Paper className={classes.root}>
-      <Lottie_Register />
+      <LottieRegister />
       <Grid className={classes.LoginWindow} container spacing={2}>
         <Grid item xs={12}><Typography variant='h4'>Create Account</Typography></Grid>
 
@@ -52,6 +51,6 @@ export default function RegisterWindow () {
         </Grid>
       </Grid>
       </Paper>
-      </Fade>
+      </Grow>
     )
 }

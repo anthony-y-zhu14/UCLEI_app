@@ -12,7 +12,6 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import TemporaryDrawer from "./Menu.js"
 import { Avatar } from '@material-ui/core';
-import { deepOrange } from '@material-ui/core/colors';
 import { useHistory } from "react-router-dom";
 import {withRouter} from 'react-router-dom';
 
@@ -53,9 +52,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  orange: {
-    color: theme.palette.getContrastText(deepOrange[500]),
-    backgroundColor: deepOrange[500],
+  userIcon: {
+    backgroundColor: '#ff5722',
   },
   inputRoot: {
     color: 'inherit',
@@ -137,9 +135,7 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
 }
 
   const logout = (value) => {
-    callBackendAPI()
-    .then(res => console.log('logged out'))
-    .catch(err => console.log(err));
+    callBackendAPI().catch(err => console.log(err));
     history.push('/');
   }
 
@@ -193,9 +189,8 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+        <AccountCircle />
         </IconButton>
-        
       </MenuItem>
     </Menu>
   );
@@ -235,7 +230,7 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <Avatar variant='circle' className={classes.orange}>
+              <Avatar variant='circle' className={classes.userIcon}>
                 {String(userName).toUpperCase().charAt(0)}
               </Avatar>
             </IconButton>

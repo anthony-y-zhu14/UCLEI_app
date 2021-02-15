@@ -4,10 +4,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import NavigationIcon from '@material-ui/icons/Navigation';
-import { Button, ButtonGroup, Container, Fade, Paper } from '@material-ui/core';
+import { Button, ButtonGroup, Container, Grow, Paper } from '@material-ui/core';
 import LoginWindow from "../components/LoginWindow"
 import RegisterWindow from "../components/RegisterWindow"
-import Stock_Lottie from "../images/Lottie_StockMarketAnalysis"
+import StockLottie from "../images/Lottie_StockMarketAnalysis"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,12 +71,12 @@ export default function Intro(props) {
                   </Typography>
               </Toolbar>
           </AppBar>
+          
           {!Login && !Register && (
-            <Fade in={true}>
-            <Paper maxWidth="sm" className={classes.content}>              
+            <Grow in={true}>
+            <Paper maxWidth="sm" className={classes.content}>  
+            <Button color='primary' variant='contained' onClick={()=>window.location.href="/dashboard"}>Dashboard</Button>            
                 <h1 className={classes.font}>UCLEI</h1>          
-                <Stock_Lottie/>
-                <br/>
                 <Typography variant="h6" className={classes.title}>        
                   UCLEI is a stock trading simulation website that provides a safe, easy-to-use sandbox environment for users to experience how stock market trading works.                        
                 </Typography>
@@ -84,14 +84,13 @@ export default function Intro(props) {
                 <Typography variant="h6" className={classes.title}>  
                   Simply create an account and you are free to explore the excitement of stock trading without consequence!
                 </Typography>
-                <br />          
-                <br />
-                <br />
+                <StockLottie />
+                <br/>
                 <Button variant="contained" color='primary' onClick={handleLogin}>                        
                   <NavigationIcon /> Get Started 
                 </Button>              
             </Paper>
-            </Fade>
+            </Grow>
           )}
           {Login && (      
             <Container maxWidth="sm" className={classes.form_content}>   

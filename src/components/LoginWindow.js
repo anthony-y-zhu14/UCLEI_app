@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { Fade, Paper, TextField, Typography } from '@material-ui/core';
+import { Grow, Paper, TextField, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Login_Lottie from '../images/Lottie_Login'
+import LoginLottie from '../images/Lottie_Login'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,9 +21,9 @@ export default function LoginWindow () {
     const [password, setPassword] = React.useState(undefined);
 
     return (        
-      <Fade in={true}>   
+      <Grow in={true}>   
       <Paper className={classes.root}>
-      <Login_Lottie/>
+      <LoginLottie/>
       <Grid className={classes.LoginWindow} container spacing={2}>
         <Grid item xs={12}><Typography variant='h4'>Welcome Back</Typography></Grid>
         <Grid item xs={12}>
@@ -37,6 +37,6 @@ export default function LoginWindow () {
         </Grid>
       </Grid>
       </Paper>
-      </Fade>
+      </Grow>
     )
 }
