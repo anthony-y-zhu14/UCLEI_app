@@ -31,9 +31,25 @@ const overridesTheme = createMuiTheme({
       },
       },
       outlined: {
-        color: colorTheme.palette.primary.main,
+        color: colorTheme.palette.secondary.contrastText,
         "&:hover": {
           backgroundColor: colorTheme.palette.primary.active, 
+          color: colorTheme.palette.primary.contrastText,
+        },
+      },
+    },
+    MuiListItem: {
+      root: {
+        "&$selected": {
+          backgroundColor: colorTheme.palette.primary.active, 
+          color: colorTheme.palette.primary.contrastText,
+          "&:hover": {
+            backgroundColor: colorTheme.palette.primary.main, 
+            color: colorTheme.palette.primary.contrastText,
+          },
+        },
+        "&:hover": {
+          color: colorTheme.palette.primary.main,
         },
       },
     },

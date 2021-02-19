@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        textAlign: 'center'
-    }
+        textAlign: 'center',
+    },
   }));
 
 
@@ -35,16 +35,16 @@ let links = {
     mrk: '/market'
 };
 
-export default function SideNav() {
+export default function SideNav({selectedPage}) {
     const classes = useStyles();
     const navToHome = () => {
         window.location = links.home;
     }
-    const navToAct = () => {
-        window.location = links.act;
-    }
     const navToDsh = () => {
         window.location = links.dsh;
+    }
+    const navToAct = () => {
+        window.location = links.act;
     }
     const navToTrd = () => {
         window.location.href = links.trd;
@@ -55,22 +55,22 @@ export default function SideNav() {
     return(
             <List className={classes.list}>
                     <ListItem>
-                        <Button className={classes.homeBtn} size='large' variant='contained' onClick={navToHome}>Home</Button>
+                        <Button className={classes.homeBtn} size='large' variant='outlined' onClick={navToHome}>UCLEI</Button>
                     </ListItem>
-                    <ListItem button onClick={navToDsh}>
-                        <ListItemIcon><DashboardIcon /></ListItemIcon>
+                    <ListItem button selected={selectedPage === 0} onClick={navToDsh}>
+                        <ListItemIcon><DashboardIcon color={selectedPage === 0 ? 'secondary': 'inherit'} /></ListItemIcon>
                         <ListItemText>Dashboard</ListItemText>
                     </ListItem>
-                    <ListItem button onClick={navToAct}>
-                        <ListItemIcon><AccountBalanceWalletIcon /></ListItemIcon>
+                    <ListItem button selected={selectedPage === 1} onClick={navToAct}>
+                        <ListItemIcon><AccountBalanceWalletIcon color={selectedPage === 1 ? 'secondary': 'inherit'}/></ListItemIcon>
                         <ListItemText>Account</ListItemText>
                     </ListItem>
-                    <ListItem button onClick={navToTrd}>
-                        <ListItemIcon><ShowChartIcon /></ListItemIcon>
+                    <ListItem button selected={selectedPage === 2} onClick={navToTrd}>
+                        <ListItemIcon><ShowChartIcon color={selectedPage === 2 ? 'secondary': 'inherit'} /></ListItemIcon>
                         <ListItemText>Trading</ListItemText>
                     </ListItem>
-                    <ListItem button onClick={navToMrk}>
-                        <ListItemIcon><AssessmentIcon /></ListItemIcon>
+                    <ListItem button selected={selectedPage === 3} onClick={navToMrk}>
+                        <ListItemIcon><AssessmentIcon color={selectedPage === 3 ? 'secondary': 'inherit'} /></ListItemIcon>
                         <ListItemText>Market</ListItemText>
                     </ListItem>
             </List>

@@ -200,7 +200,7 @@ const PrimarySearchAppBar = ({currentPage, userName}) => {
       <div style={{marginBottom:75}} className={classes.grow}>
       <AppBar position="fixed">
         <Toolbar>
-            <TemporaryDrawer />
+            <TemporaryDrawer currentPage={currentPage}/>
           <Typography className={classes.title} variant="h6" noWrap>
             {currentPage}
           </Typography>

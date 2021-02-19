@@ -8,9 +8,14 @@ import SideNav from './SideNav'
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
+  },
+  paper: {
+    backgroundColor: '#f0f8ff',
+    minwidth: '25%'
   }
+  
 }));
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer({currentPage}) {
   const classes = useStyles();
   const [state, setState] = useState({
     top: false,
@@ -25,13 +30,28 @@ export default function TemporaryDrawer() {
     setState({ ...state, [anchor]: open });  
   };
 
+  function selectedPage() {
+    switch (currentPage) {
+      case "Dashboard":
+        return 0;
+      case "Account":
+        return 1;
+      case "Trading":
+        return 2;
+      case "Market":
+        return 3;
+      default:
+        return 0;
+    }
+  }
+
   return (
     <React.Fragment key={'left'}>
       <IconButton onClick={toggleDrawer('left', true)} edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer"  >
         <MenuIcon />
       </IconButton>
-      <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
-        <SideNav />
+      <Drawer classes={{ paper: classes.paper }} anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
+        <SideNav selectedPage={selectedPage()} />
       </Drawer>
     </React.Fragment> 
   );
