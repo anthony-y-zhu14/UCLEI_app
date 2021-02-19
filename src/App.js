@@ -8,6 +8,8 @@ import  { BreakpointProvider } from 'react-socks';
 import Intro from './pages/Intro.js';
 import Dashboard from './pages/Dashboard.js'
 import Account from './pages/Account.js'
+import Trading from './pages/Trading.js'
+import Market from './pages/Market.js'
 
 
 export default function App(){
@@ -20,7 +22,9 @@ export default function App(){
                         <Switch>
                             <Route exact path="/" component={()=> <Intro />}/>
                             <Route path="/Dashboard" component={()=> <Dashboard />}/>  
-                            <Route path="/Account" component={()=> <Account />}/>                       
+                            <Route path="/Account" component={()=> <Account />}/>  
+                            <Route path="/Trading" component={()=> <Trading />}/> 
+                            <Route path="/Market" component={()=> <Market />}/>                      
                         </Switch>
                 </Router>
             </BreakpointProvider>

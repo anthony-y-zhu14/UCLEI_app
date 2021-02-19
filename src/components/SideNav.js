@@ -55,7 +55,7 @@ export default function SideNav({selectedPage}) {
     return(
             <List className={classes.list}>
                     <ListItem>
-                        <Button className={classes.homeBtn} size='large' variant='outlined' onClick={navToHome}>UCLEI</Button>
+                        <Button className={classes.homeBtn} size='large' variant='outlined' onClick={navToHome}>Home</Button>
                     </ListItem>
                     <ListItem button selected={selectedPage === 0} onClick={navToDsh}>
                         <ListItemIcon><DashboardIcon color={selectedPage === 0 ? 'secondary': 'inherit'} /></ListItemIcon>

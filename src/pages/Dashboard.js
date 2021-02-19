@@ -32,26 +32,6 @@ export default function Dashboard() {
           <Typography variant='body2'>Investment Balance: 1000</Typography>
         </Paper>
         </Grow>
-        <Grow in={true}>
-        <Paper className={classes.content}>
-          <Typography variant='h4'>Account Summary</Typography>     
-          <Typography variant='h5'>Jerry Smith</Typography>
-          <Typography variant='body1'>Account: TFSA</Typography>
-          <Typography variant='body2'>Total Equity: 1000</Typography>
-          <Typography variant='body2'>Cash Balance: 1000</Typography>
-          <Typography variant='body2'>Investment Balance: 1000</Typography>
-        </Paper>
-        </Grow>
-        <Grow in={true}>
-        <Paper className={classes.content}>
-          <Typography variant='h4'>Account Summary</Typography>     
-          <Typography variant='h5'>Jerry Smith</Typography>
-          <Typography variant='body1'>Account: TFSA</Typography>
-          <Typography variant='body2'>Total Equity: 1000</Typography>
-          <Typography variant='body2'>Cash Balance: 1000</Typography>
-          <Typography variant='body2'>Investment Balance: 1000</Typography>
-        </Paper>
-        </Grow>
       </Container>
       )
  }
