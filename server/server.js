@@ -43,7 +43,6 @@ app.post('/authentication', (req, res) => {
     req.on('data', (chunk) => {
         data = JSON.parse(chunk);
     });
-
     req.on('end', () => {
       console.log(data);
     let username = data.username;
